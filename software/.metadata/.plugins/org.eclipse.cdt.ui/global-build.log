@@ -1,0 +1,3 @@
+00:22:25 **** Clean-only build of configuration Nios II for project test ****
+make clean 
+[test clean complete]
