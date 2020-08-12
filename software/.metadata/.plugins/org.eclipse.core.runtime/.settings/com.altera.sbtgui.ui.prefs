@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-newSoftwareExampleWizardPage.defaultLocation=F\:\\test\\MAX10M08-nios2\\nios\\software\\test
+newSoftwareExampleWizardPage.defaultLocation=F\:\\test\\MAX10M08-nios2\\software\\HelloWorld
 newSoftwareExampleWizardPage.sopcinfoFile=F\:\\test\\MAX10M08-nios2\\nios\\nios.sopcinfo
-newSoftwareExampleWizardPage2.newBspLocation=F\:\\test\\MAX10M08-nios2\\nios\\software\\test_bsp
+newSoftwareExampleWizardPage2.newBspLocation=F\:\\test\\MAX10M08-nios2\\software\\HelloWorld_bsp

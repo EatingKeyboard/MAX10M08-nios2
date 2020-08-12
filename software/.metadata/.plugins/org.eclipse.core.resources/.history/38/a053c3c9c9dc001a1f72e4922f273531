@@ -1,0 +1,50 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdio.h>
+void sdram_test(alt_u8 *base, int len);
+int main()
+{
+  printf("Hello World!\r\n");
+  sdram_test((alt_u8 *)0x01800000,0x800000);
+  return 114514;
+}
+
+void sdram_test(alt_u8 *base, int len) {
+	alt_u8 *addr = base;
+	char errFlag = 0;
+	for (addr = base; addr < (base + len); addr += 0x100) {
+		for (int i = 0; i < 256; i++) {
+			*(addr + i) = i;
+		}
+		for (int i = 0; i < 256; i++) {
+			if (*(addr + i) != i) {
+				errFlag = 1;
+				printf("mem err at %08X,must=%d,now=%d\r\n", (int) addr + i, i,
+									*(addr + i));
+				break;
+			}
+		}
+		if (errFlag) {
+			break;
+		}
+	}
+	if (errFlag) {
+		printf("RAM TEST FAIL!\r\n");
+	} else {
+		printf("RAM TEST SUCCESS! BASE: %8X LEN:%8X\r\n", (int) base, len);
+	}
+}
