@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios'
  * SOPC Builder design path: F:/test/MAX10M08-nios2/nios/nios.sopcinfo
  *
- * Generated: Thu Aug 13 03:02:32 CST 2020
+ * Generated: Thu Aug 13 11:16:17 CST 2020
  */
 
 /*
@@ -50,11 +50,14 @@
 
 MEMORY
 {
-    reset : ORIGIN = 0x20000000, LENGTH = 32
+    reset : ORIGIN = 0x20000, LENGTH = 32
+    onchip_flash_0_data : ORIGIN = 0x20020, LENGTH = 116704
+    sdram_controller_0_BEFORE_EXCEPTION : ORIGIN = 0x20000000, LENGTH = 32
     sdram_controller_0 : ORIGIN = 0x20000020, LENGTH = 8388576
 }
 
 /* Define symbols for each memory base-address */
+__alt_mem_onchip_flash_0_data = 0x20000;
 __alt_mem_sdram_controller_0 = 0x20000000;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
@@ -328,7 +331,24 @@ SECTIONS
      *
      */
 
-    .sdram_controller_0 LOADADDR (.bss) + SIZEOF (.bss) : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    .onchip_flash_0_data : AT ( LOADADDR (.bss) + SIZEOF (.bss) )
+    {
+        PROVIDE (_alt_partition_onchip_flash_0_data_start = ABSOLUTE(.));
+        *(.onchip_flash_0_data .onchip_flash_0_data. onchip_flash_0_data.*)
+        . = ALIGN(4);
+        PROVIDE (_alt_partition_onchip_flash_0_data_end = ABSOLUTE(.));
+    } > onchip_flash_0_data
+
+    PROVIDE (_alt_partition_onchip_flash_0_data_load_addr = LOADADDR(.onchip_flash_0_data));
+
+    /*
+     *
+     * This section's LMA is set to the .text region.
+     * crt0 will copy to this section's specified mapped region virtual memory address (VMA)
+     *
+     */
+
+    .sdram_controller_0 LOADADDR (.onchip_flash_0_data) + SIZEOF (.onchip_flash_0_data) : AT ( LOADADDR (.onchip_flash_0_data) + SIZEOF (.onchip_flash_0_data) )
     {
         PROVIDE (_alt_partition_sdram_controller_0_start = ABSOLUTE(.));
         *(.sdram_controller_0 .sdram_controller_0. sdram_controller_0.*)

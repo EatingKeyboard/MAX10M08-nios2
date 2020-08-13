@@ -1,6 +1,6 @@
-03:19:49 **** Clean-only build of configuration Nios II for project HelloWorld ****
+00:30:11 **** Clean-only build of configuration Nios II for project HelloWorld ****
 make clean 
 [HelloWorld clean complete]
 
-03:19:49 Build Finished (took 327ms)
+00:30:11 Build Finished (took 316ms)
 

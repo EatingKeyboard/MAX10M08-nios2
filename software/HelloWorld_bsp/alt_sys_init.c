@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'nios'
  * SOPC Builder design path: F:/test/MAX10M08-nios2/nios/nios.sopcinfo
  *
- * Generated: Thu Aug 13 02:06:20 CST 2020
+ * Generated: Thu Aug 13 11:16:17 CST 2020
  */
 
 /*
@@ -60,6 +60,7 @@
 
 #include "altera_nios2_gen2_irq.h"
 #include "altera_avalon_uart.h"
+#include "altera_onchip_flash.h"
 
 /*
  * Allocate the device storage
@@ -67,6 +68,7 @@
 
 ALTERA_NIOS2_GEN2_IRQ_INSTANCE ( NIOS2_GEN2_0, nios2_gen2_0);
 ALTERA_AVALON_UART_INSTANCE ( UART_0, uart_0);
+ALTERA_ONCHIP_FLASH_DATA_CSR_INSTANCE ( ONCHIP_FLASH_0, ONCHIP_FLASH_0_DATA, ONCHIP_FLASH_0_CSR, onchip_flash_0);
 
 /*
  * Initialize the interrupt controller devices
@@ -90,4 +92,5 @@ void alt_irq_init ( const void* base )
 void alt_sys_init( void )
 {
     ALTERA_AVALON_UART_INIT ( UART_0, uart_0);
+    ALTERA_ONCHIP_FLASH_INIT ( ONCHIP_FLASH_0, onchip_flash_0);
 }

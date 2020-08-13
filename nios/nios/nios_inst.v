@@ -1,5 +1,6 @@
 	nios u0 (
 		.clk_clk       (<connected-to-clk_clk>),       //    clk.clk
+		.gpioa_export  (<connected-to-gpioa_export>),  //  gpioa.export
 		.reset_reset_n (<connected-to-reset_reset_n>), //  reset.reset_n
 		.sdram_addr    (<connected-to-sdram_addr>),    //  sdram.addr
 		.sdram_ba      (<connected-to-sdram_ba>),      //       .ba
@@ -11,7 +12,6 @@
 		.sdram_ras_n   (<connected-to-sdram_ras_n>),   //       .ras_n
 		.sdram_we_n    (<connected-to-sdram_we_n>),    //       .we_n
 		.uart_0_rxd    (<connected-to-uart_0_rxd>),    // uart_0.rxd
-		.uart_0_txd    (<connected-to-uart_0_txd>),    //       .txd
-		.gpioa_export  (<connected-to-gpioa_export>)   //  gpioa.export
+		.uart_0_txd    (<connected-to-uart_0_txd>)     //       .txd
 	);
 

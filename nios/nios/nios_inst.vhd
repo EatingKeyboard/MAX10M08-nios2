@@ -1,6 +1,7 @@
 	component nios is
 		port (
 			clk_clk       : in    std_logic                     := 'X';             -- clk
+			gpioa_export  : out   std_logic_vector(7 downto 0);                     -- export
 			reset_reset_n : in    std_logic                     := 'X';             -- reset_n
 			sdram_addr    : out   std_logic_vector(11 downto 0);                    -- addr
 			sdram_ba      : out   std_logic_vector(1 downto 0);                     -- ba
@@ -12,14 +13,14 @@
 			sdram_ras_n   : out   std_logic;                                        -- ras_n
 			sdram_we_n    : out   std_logic;                                        -- we_n
 			uart_0_rxd    : in    std_logic                     := 'X';             -- rxd
-			uart_0_txd    : out   std_logic;                                        -- txd
-			gpioa_export  : out   std_logic_vector(7 downto 0)                      -- export
+			uart_0_txd    : out   std_logic                                         -- txd
 		);
 	end component nios;
 
 	u0 : component nios
 		port map (
 			clk_clk       => CONNECTED_TO_clk_clk,       --    clk.clk
+			gpioa_export  => CONNECTED_TO_gpioa_export,  --  gpioa.export
 			reset_reset_n => CONNECTED_TO_reset_reset_n, --  reset.reset_n
 			sdram_addr    => CONNECTED_TO_sdram_addr,    --  sdram.addr
 			sdram_ba      => CONNECTED_TO_sdram_ba,      --       .ba
@@ -31,7 +32,6 @@
 			sdram_ras_n   => CONNECTED_TO_sdram_ras_n,   --       .ras_n
 			sdram_we_n    => CONNECTED_TO_sdram_we_n,    --       .we_n
 			uart_0_rxd    => CONNECTED_TO_uart_0_rxd,    -- uart_0.rxd
-			uart_0_txd    => CONNECTED_TO_uart_0_txd,    --       .txd
-			gpioa_export  => CONNECTED_TO_gpioa_export   --  gpioa.export
+			uart_0_txd    => CONNECTED_TO_uart_0_txd     --       .txd
 		);
 

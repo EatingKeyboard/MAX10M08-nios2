@@ -61,9 +61,6 @@ set_location_assignment PIN_A4 -to rxd
 set_location_assignment PIN_B4 -to txd
 set_location_assignment PIN_H6 -to clk
 set_location_assignment PIN_E6 -to rst_n
-set_global_assignment -name QIP_FILE nios/nios/synthesis/nios.qip
-set_global_assignment -name VERILOG_FILE top_mian.v
-set_global_assignment -name QIP_FILE pll/pll.qip
 set_location_assignment PIN_G10 -to sdram_dq[1]
 set_location_assignment PIN_F10 -to sdram_dq[2]
 set_location_assignment PIN_F9 -to sdram_dq[3]
@@ -110,4 +107,16 @@ set_location_assignment PIN_A10 -to led[3]
 set_location_assignment PIN_A11 -to led[2]
 set_location_assignment PIN_A9 -to led[1]
 set_location_assignment PIN_A8 -to led[0]
+set_global_assignment -name ENABLE_OCT_DONE ON
+set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
+set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE"
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+set_global_assignment -name QIP_FILE nios/nios/synthesis/nios.qip
+set_global_assignment -name VERILOG_FILE top_mian.v
+set_global_assignment -name QIP_FILE pll/pll.qip
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

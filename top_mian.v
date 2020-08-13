@@ -40,6 +40,7 @@ assign sdram_clk = clk_100m_shift;
 		  .reset_reset_n  (sys_rst_n),     //  reset.reset_n
         .uart_0_rxd     (rxd),           // uart_0.rxd
         .uart_0_txd     (txd),           //       .txd
+		  .gpioa_export   (led),           //  gpioa.export
 		  
 		  .sdram_addr     (sdram_addr),    //  sdram.addr
         .sdram_ba       (sdram_ba),      //       .ba
@@ -49,9 +50,9 @@ assign sdram_clk = clk_100m_shift;
         .sdram_dq       (sdram_dq),      //       .dq
         .sdram_dqm      (sdram_dqm),     //       .dqm
         .sdram_ras_n    (sdram_ras_n),   //       .ras_n
-        .sdram_we_n     (sdram_we_n),    //       .we_n
+        .sdram_we_n     (sdram_we_n)     //       .we_n
 		  
-		  .gpioa_export   (led)            //  gpioa.export
+
     );
 
 endmodule
